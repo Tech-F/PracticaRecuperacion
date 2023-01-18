@@ -11,9 +11,11 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         int[][] array1=solicitar();
+        int[][] array2=solicitar();
         aleatorio(array1);
-        mostrarYSumaMatriz(array1);
-        media(array1);
+        aleatorio(array2);
+        System.out.println("Esta es la media " +media(mostrarYSumaMatriz(array1),array1)*media(mostrarYSumaMatriz(array2),array2));
+
 
     }
 
