@@ -8,16 +8,26 @@ import java.util.Scanner;
  */
 public class ArrayPrimos {
 
+    public static void mostrar(int[] array1, int[] array2){
+        System.out.println("Contenido array 1: "+Arrays.toString(array1));
+        System.out.println("Contenido array 2: "+Arrays.toString(array2));
+    }
 
     public static int[] primos(int[] array){
-        double num=0;
+        int [] array2=crearArray();
         for(int i=0;i<array.length;i++){
             for(int h=0;h<array[i];h++){
                 if (array[i]%h==0 && h!=0 && h!=i)
+                    continue;
+                else{
+
+                    int l=0;
+                    array2[l]=array[i];
+                    l++;
+                }
             }
-
-
         }
+return array2;
     }
 
     public static int[] aleatorios(int [] array){
@@ -33,4 +43,10 @@ public class ArrayPrimos {
         return array;
     }
 
+    public static void main(String[] args) {
+        int[] array1=aleatorios(crearArray());
+        int[] array2=aleatorios(crearArray());
+        primos(array2);
+        mostrar(array1,array2);
+    }
 }
