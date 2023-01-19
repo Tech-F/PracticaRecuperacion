@@ -1,5 +1,5 @@
 import java.util.Arrays;
-import java.util.Scanner;
+
 
 /**
  * Crear un array que contenga 30 números enteros aleatorios entre 0 y 99.
@@ -15,17 +15,18 @@ public class ArrayPrimos {
 
     public static int[] primos(int[] array){
         int [] array2=crearArray();
+        int cont=0;
+        int l=0;
         for(int i=0;i<array.length;i++){
-            for(int h=0;h<array[i];h++){
-                if (array[i]%h==0 && h!=0 && h!=i)
-                    continue;
-                else{
-
-                    int l=0;
-                    array2[l]=array[i];
-                    l++;
-                }
+            for(int h=1;h<=array[i];h++){
+                if (array[i]%h==0)
+                    cont++;
             }
+            if(cont==2){
+                array2[l]=array[i];
+                l++;
+            }
+            cont=0;
         }
 return array2;
     }
@@ -44,9 +45,9 @@ return array2;
     }
 
     public static void main(String[] args) {
-        int[] array1=aleatorios(crearArray());
-        int[] array2=aleatorios(crearArray());
-        primos(array2);
+        int[]array1=aleatorios(crearArray());
+        int[]array2=array1;
+        array1=primos(array1);
         mostrar(array1,array2);
     }
 }
